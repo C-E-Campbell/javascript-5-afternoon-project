@@ -83,24 +83,24 @@ count(); // 4
   http://stackoverflow.com/questions/17776940/javascript-module-pattern-with-example?answertab=votes#tab-top
 */
 
-// function counterFactory(value) {
-// 	// Code here.
-// 	this.num = value;
-// 	return {
-// 		inc: function() {
-// 			return (this.num += 1);
-// 		},
-// 		dec: function() {
-// 			return (this.num -= 1);
-// 		}
-// 	};
-// }
+function counterFactory(value) {
+	// Code here.
+	let num = value;
+	return {
+		inc: function() {
+			return (num += 1);
+		},
+		dec: function() {
+			return (num -= 1);
+		}
+	};
+}
 
-// counter = counterFactory(10);
-// counter.inc(); // 11
-// counter.inc(); // 12
-// counter.inc(); // 13
-// counter.dec(); // 12
+counter = counterFactory(10);
+counter.inc(); // 11
+counter.inc(); // 12
+counter.inc(); // 13
+counter.dec(); // 12
 
 ////////// PROBLEM 5 //////////
 
@@ -174,8 +174,8 @@ function secretNumber() {
 		addToSecret: function(num) {
 			return (secret += num);
 		},
-		takeAwayFromSecret: function() {
-			return secret - +num;
+		takeAwayFromSecret: function(num) {
+			return (secret -= num);
 		}
 	};
 }
